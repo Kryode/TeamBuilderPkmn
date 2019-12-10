@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,21 @@ namespace TeamBuilderPkmn
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Type> TypesList { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
+            TypesList = new List<Type>();
+            TypesList.Add(Type.SetType(Type.types.none));
+            TypesList.AddRange(Type.TYPES); 
+
+            typeOne.ItemsSource = TypesList;
+            typeOne.DisplayMemberPath = "StringType";
+
+            typeTwo.ItemsSource = TypesList;
+            typeTwo.DisplayMemberPath = "StringType";
+
         }
     }
 }
