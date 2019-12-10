@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TeamBuilderPkmn
 {
-    class Pokemon
+    public class Pokemon
     {
         public Type Type1 { get; set; }
         public Type Type2 { get; set; }

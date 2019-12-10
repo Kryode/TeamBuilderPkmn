@@ -8,7 +8,7 @@ namespace TeamBuilderPkmn
 {
     public class Type
     {
-        public types Name;
+        public types Name { get; set; }
 
         public string StringType { get; set; }
 
@@ -442,12 +442,13 @@ namespace TeamBuilderPkmn
             this.StringType = Name.ToString();
         }
 
-        static public Type SetType(types setType)
+        public static Type SetType(types setType)
         {
             foreach (Type type in TYPES)
             {
                 if(type.Name == setType)
                 {
+                    
                     return type;
                 }
             }

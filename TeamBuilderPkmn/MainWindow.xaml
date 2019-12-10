@@ -12,7 +12,19 @@
             <RowDefinition Height="400*"/>
         </Grid.RowDefinitions>
         <!--<ComboBox ItemsSource="{Binding cbItems}" SelectedItem="{Binding SelectedcbItem}"/><-->
-        <ComboBox x:Name="typeOne"  HorizontalAlignment="Left" Height="45" Margin="45,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230" SelectedIndex="0"></ComboBox>
-        <ComboBox x:Name="typeTwo"  HorizontalAlignment="Right" Height="45" Margin="0,0,45,0" Grid.Row="1" VerticalAlignment="Top" Width="230" SelectedIndex="0"></ComboBox>
+        <ComboBox x:Name="typeOne"  HorizontalAlignment="Left" Height="45" Margin="45,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230"></ComboBox>
+        <ComboBox x:Name="typeTwo"  HorizontalAlignment="Right" Height="45" Margin="0,0,45,0" Grid.Row="1" VerticalAlignment="Top" Width="230"></ComboBox>
+        <Label x:Name="labelZero" Content="x0" HorizontalAlignment="Left" Height="31" Margin="24,94,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50"/>
+        <Label x:Name="labelQuart" Content="x1/4" HorizontalAlignment="Left" Height="31" Margin="24,130,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50"/>
+        <Label x:Name="labelHalf" Content="x1/2" HorizontalAlignment="Left" Height="31" Margin="24,166,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50"/>
+        <Label x:Name="labelOne" Content="x1" HorizontalAlignment="Left" Height="31" Margin="24,202,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50"/>
+        <Label x:Name="labelDouble" Content="x2" HorizontalAlignment="Left" Height="31" Margin="24,238,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50"/>
+        <Label x:Name="labelQuad" Content="x4" HorizontalAlignment="Left" Height="31" Margin="24,274,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50"/>
+        <Label x:Name="EntryZero" Content="" HorizontalAlignment="Left" Height="31" Margin="83,94,0,0" Grid.Row="1" VerticalAlignment="Top" Width="664"/>
+        <Label x:Name="EntryQuart" Content="" HorizontalAlignment="Left" Height="31" Margin="83,130,0,0" Grid.Row="1" VerticalAlignment="Top" Width="664"/>
+        <Label x:Name="EntryHalf" Content="" HorizontalAlignment="Left" Height="31" Margin="83,166,0,0" Grid.Row="1" VerticalAlignment="Top" Width="664"/>
+        <Label x:Name="EntryOne" Content="" HorizontalAlignment="Left" Height="31" Margin="83,202,0,0" Grid.Row="1" VerticalAlignment="Top" Width="664"/>
+        <Label x:Name="EntryDouble" Content="" HorizontalAlignment="Left" Height="31" Margin="83,238,0,0" Grid.Row="1" VerticalAlignment="Top" Width="664"/>
+        <Label x:Name="EntryQuad" Content="" HorizontalAlignment="Left" Height="31" Margin="83,274,0,0" Grid.Row="1" VerticalAlignment="Top" Width="664"/>
     </Grid>
 </Window>
