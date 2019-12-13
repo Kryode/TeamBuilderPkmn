@@ -503,8 +503,9 @@ namespace TeamBuilderPkmn
 
         private static Type[] LoadTypes()
         {
-            return new Type[] 
+            return new Type[]
             {
+                new Type(types.none),
                 new Type(types.Normal),
                 new Type(types.Fighting),
                 new Type(types.Flying),

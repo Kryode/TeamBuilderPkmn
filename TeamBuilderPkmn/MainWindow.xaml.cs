@@ -27,19 +27,19 @@ namespace TeamBuilderPkmn
         {
             InitializeComponent();
             DataContext = this;
-            TypesList = new List<Type>();
-            TypesList.Add(Type.SetType(Type.types.none));
-            TypesList.AddRange(Type.TYPES); 
+            TypesList = Type.TYPES.ToList();
+            typeTwo.ItemsSource = TypesList;
+            typeTwo.DisplayMemberPath = "StringType";
+            typeTwo.SelectedValuePath = "Name";
+            typeTwo.SelectionChanged += typeTwo_SelectionChanged;
 
+            TypesList.Remove(Type.SetType(Type.types.none));
             typeOne.ItemsSource = TypesList;
             typeOne.DisplayMemberPath = "StringType";
             typeOne.SelectedValuePath = "Name";
             typeOne.SelectionChanged += TypeOne_SelectionChanged;
 
-            typeTwo.ItemsSource = TypesList;
-            typeTwo.DisplayMemberPath = "StringType";
-            typeTwo.SelectedValuePath = "Name";
-            typeTwo.SelectionChanged += typeTwo_SelectionChanged;
+            
 
         }
 
@@ -60,6 +60,7 @@ namespace TeamBuilderPkmn
             PrintWeaknesses(pkmn);
             TypesList = Type.TYPES.ToList();
             TypesList.Remove(Type.SetType((Type.types)box.SelectedValue));
+            TypesList.Remove(Type.SetType(Type.types.none));
             typeOne.ItemsSource = TypesList;
         }
 
