@@ -12,11 +12,11 @@ namespace TeamBuilderPkmn
         public Type Type2 { get; set; }
         public Pokemon()
         {
-            this.Type1 = Type.SetType(Type.types.none);
-            this.Type2 = Type.SetType(Type.types.none);
+            this.Type1 = Type.GetType(Type.types.none);
+            this.Type2 = Type.GetType(Type.types.none);
         }
         /*
-        public void SetType(string type, bool isSecondType = false)
+        public void GetType(string type, bool isSecondType = false)
         {
             if (isSecondType)
             {

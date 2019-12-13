@@ -442,11 +442,11 @@ namespace TeamBuilderPkmn
             this.StringType = Name.ToString();
         }
 
-        public static Type SetType(types setType)
+        public static Type GetType(types GetType)
         {
             foreach (Type type in TYPES)
             {
-                if(type.Name == setType)
+                if(type.Name == GetType)
                 {
                     
                     return type;

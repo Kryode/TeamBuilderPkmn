@@ -31,42 +31,37 @@ namespace TeamBuilderPkmn
             typeTwo.ItemsSource = TypesList;
             typeTwo.DisplayMemberPath = "StringType";
             typeTwo.SelectedValuePath = "Name";
-            typeTwo.SelectionChanged += typeTwo_SelectionChanged;
+            typeTwo.SelectionChanged += typeChanged;
 
-            TypesList.Remove(Type.SetType(Type.types.none));
+            TypesList.Remove(Type.GetType(Type.types.none));
             typeOne.ItemsSource = TypesList;
             typeOne.DisplayMemberPath = "StringType";
             typeOne.SelectedValuePath = "Name";
-            typeOne.SelectionChanged += TypeOne_SelectionChanged;
-
-            
-
+            typeOne.SelectionChanged += typeChanged;
         }
-
-        private void TypeOne_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void typeChanged(object sender, SelectionChangedEventArgs args)
         {
-            ComboBox box = (ComboBox)sender;
-            pkmn.Type1 = Type.SetType((Type.types)box.SelectedValue);
-            PrintWeaknesses(pkmn);
+            ComboBox box = (ComboBox)args.Source;
             TypesList = Type.TYPES.ToList();
-            TypesList.Remove(Type.SetType((Type.types)box.SelectedValue));
-            typeTwo.ItemsSource = TypesList;
-        }
-
-        private void typeTwo_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ComboBox box = (ComboBox)sender;
-            pkmn.Type2 = Type.SetType((Type.types)box.SelectedValue);
+            if(box.Name == "typeOne")
+            {
+                pkmn.Type1 = Type.GetType((Type.types)box.SelectedValue);
+                TypesList.Remove(pkmn.Type1);
+                typeTwo.ItemsSource = TypesList;
+            }
+            else
+            {
+                pkmn.Type2 = Type.GetType((Type.types)box.SelectedValue);
+                TypesList.Remove(pkmn.Type2);
+                TypesList.Remove(Type.GetType(Type.types.none));
+                typeOne.ItemsSource = TypesList;
+            }
             PrintWeaknesses(pkmn);
-            TypesList = Type.TYPES.ToList();
-            TypesList.Remove(Type.SetType((Type.types)box.SelectedValue));
-            TypesList.Remove(Type.SetType(Type.types.none));
-            typeOne.ItemsSource = TypesList;
         }
 
         private void PrintWeaknesses(Pokemon pkmn)
         {
-            EmptyEntry();
+            EmptyEntries();
             Dictionary<Type.types, float> weaknesses = pkmn.GetWeakness();
             foreach (KeyValuePair<Type.types,float> type in weaknesses)
             {
@@ -95,7 +90,7 @@ namespace TeamBuilderPkmn
                 }
             }
         }
-        private void EmptyEntry()
+        private void EmptyEntries()
         {
             EntryZero.Content = "";
             EntryQuart.Content = "";
