@@ -526,6 +526,17 @@ namespace TeamBuilderPkmn
                 new Type(types.Fairy)
             };
         }
+
+        public static List<Type> GetListPossibleTypes(Type excludedType,bool isNoneOk= true)
+        {
+            List<Type> types = TYPES.ToList();
+            types.Remove(excludedType);
+            if (!isNoneOk)
+            {
+                types.Remove(GetType(Type.types.none));
+            }
+            return types;
+        }
     }
 
 

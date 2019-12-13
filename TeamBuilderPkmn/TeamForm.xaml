@@ -1,0 +1,40 @@
+﻿<Window x:Class="TeamBuilderPkmn.TeamForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TeamBuilderPkmn"
+        mc:Ignorable="d"
+        Title="TeamForm" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400*"/>
+            <ColumnDefinition Width="400*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox Name="pkmn1Type1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Column="0" Grid.Row="0"/>
+        <ComboBox Name="pkmn1Type2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Column="1" Grid.Row="0"/>
+        <ComboBox Name="pkmn2Type1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Column="0" Grid.Row="1"/>
+        <ComboBox Name="pkmn2Type2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Column="1" Grid.Row="1"/>
+        <ComboBox Name="pkmn3Type1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Column="0" Grid.Row="2"/>
+        <ComboBox Name="pkmn3Type2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Column="1" Grid.Row="2"/>
+        <ComboBox Name="pkmn4Type1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Column="0" Grid.Row="3"/>
+        <ComboBox Name="pkmn4Type2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Column="1" Grid.Row="3"/>
+        <ComboBox Name="pkmn5Type1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Column="0" Grid.Row="4"/>
+        <ComboBox Name="pkmn5Type2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Column="1" Grid.Row="4"/>
+        <ComboBox Name="pkmn6Type1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Column="0" Grid.Row="5"/>
+        <ComboBox Name="pkmn6Type2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Column="1" Grid.Row="5"/>
+        <Button Name="send" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" Height="40" Margin="296,10,296,10" Width="200" Grid.ColumnSpan="2">
+            Envoyer
+        </Button>
+
+    </Grid>
+</Window>

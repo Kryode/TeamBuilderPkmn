@@ -27,6 +27,7 @@ namespace TeamBuilderPkmn
         {
             InitializeComponent();
             DataContext = this;
+
             TypesList = Type.TYPES.ToList();
             typeTwo.ItemsSource = TypesList;
             typeTwo.DisplayMemberPath = "StringType";
@@ -39,22 +40,19 @@ namespace TeamBuilderPkmn
             typeOne.SelectedValuePath = "Name";
             typeOne.SelectionChanged += typeChanged;
         }
+
         private void typeChanged(object sender, SelectionChangedEventArgs args)
         {
             ComboBox box = (ComboBox)args.Source;
-            TypesList = Type.TYPES.ToList();
             if(box.Name == "typeOne")
             {
                 pkmn.Type1 = Type.GetType((Type.types)box.SelectedValue);
-                TypesList.Remove(pkmn.Type1);
-                typeTwo.ItemsSource = TypesList;
+                typeTwo.ItemsSource = Type.GetListPossibleTypes(pkmn.Type1);
             }
             else
             {
                 pkmn.Type2 = Type.GetType((Type.types)box.SelectedValue);
-                TypesList.Remove(pkmn.Type2);
-                TypesList.Remove(Type.GetType(Type.types.none));
-                typeOne.ItemsSource = TypesList;
+                typeOne.ItemsSource = Type.GetListPossibleTypes(pkmn.Type2,false);
             }
             PrintWeaknesses(pkmn);
         }
