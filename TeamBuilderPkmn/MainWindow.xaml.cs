@@ -81,7 +81,7 @@ namespace TeamBuilderPkmn
                         EntryDouble.Content += type.Key + " ";
                         break;
                     case 4:
-                        EntryQuart.Content += type.Key + " ";
+                        EntryQuad.Content += type.Key + " ";
                         break;
                     default:
                         break;
