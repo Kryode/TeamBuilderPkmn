@@ -30,28 +30,28 @@ namespace TeamBuilderPkmn
 
             TypesList = Type.TYPES.ToList();
             typeTwo.ItemsSource = TypesList;
-            typeTwo.DisplayMemberPath = "StringType";
+            typeTwo.DisplayMemberPath = "Name";
             typeTwo.SelectedValuePath = "Name";
-            typeTwo.SelectionChanged += typeChanged;
+            typeTwo.SelectionChanged += TypeChanged;
 
-            TypesList.Remove(Type.GetType(Type.types.none));
+            TypesList.Remove(Type.GetType("none"));
             typeOne.ItemsSource = TypesList;
-            typeOne.DisplayMemberPath = "StringType";
+            typeOne.DisplayMemberPath = "Name";
             typeOne.SelectedValuePath = "Name";
-            typeOne.SelectionChanged += typeChanged;
+            typeOne.SelectionChanged += TypeChanged;
         }
 
-        private void typeChanged(object sender, SelectionChangedEventArgs args)
+        private void TypeChanged(object sender, SelectionChangedEventArgs args)
         {
             ComboBox box = (ComboBox)args.Source;
             if(box.Name == "typeOne")
             {
-                pkmn.Type1 = Type.GetType((Type.types)box.SelectedValue);
+                pkmn.Type1 = Type.GetType(box.Text);
                 typeTwo.ItemsSource = Type.GetListPossibleTypes(pkmn.Type1);
             }
             else
             {
-                pkmn.Type2 = Type.GetType((Type.types)box.SelectedValue);
+                pkmn.Type2 = Type.GetType(box.Text);
                 typeOne.ItemsSource = Type.GetListPossibleTypes(pkmn.Type2,false);
             }
             PrintWeaknesses(pkmn);
@@ -60,8 +60,8 @@ namespace TeamBuilderPkmn
         private void PrintWeaknesses(Pokemon pkmn)
         {
             EmptyEntries();
-            Dictionary<Type.types, float> weaknesses = pkmn.GetWeakness();
-            foreach (KeyValuePair<Type.types,float> type in weaknesses)
+            Dictionary<string, float> weaknesses = pkmn.GetWeakness();
+            foreach (KeyValuePair<string,float> type in weaknesses)
             {
                 switch (type.Value)
                 {

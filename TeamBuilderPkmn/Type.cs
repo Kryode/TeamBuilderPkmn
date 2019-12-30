@@ -8,441 +8,415 @@ namespace TeamBuilderPkmn
 {
     public class Type
     {
-        public types Name { get; set; }
-
-        public string StringType { get; set; }
+        public string Name { get; set; }
 
         public static readonly Type[] TYPES = LoadTypes();
 
-        public enum types
+        private readonly static Dictionary<string, float> normalType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",2 },
+            {"Flying",1 },
+            {"Poison",1 },
+            {"Ground",1 },
+            {"Rock",1 },
+            {"Bug",1 },
+            {"Ghost",0 },
+            {"Steel",1 },
+            {"Fire",1 },
+            {"Water",1 },
+            {"Grass",1 },
+            {"Electric",1 },
+            {"Psychic",1 },
+            {"Ice",1 },
+            {"Dragon",1 },
+            {"Dark",1 },
+            {"Fairy",1 }
+        };
+
+        private readonly static Dictionary<string, float> figthingType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",1 },
+            {"Flying",2 },
+            {"Poison",1 },
+            {"Ground",1 },
+            {"Rock",0.5f },
+            {"Bug",0.5f },
+            {"Ghost",1 },
+            {"Steel",1 },
+            {"Fire",1 },
+            {"Water",1 },
+            {"Grass",1 },
+            {"Electric",1 },
+            {"Psychic",2 },
+            {"Ice",1 },
+            {"Dragon",1 },
+            {"Dark",0.5f },
+            {"Fairy",2 }
+        };
+
+        private readonly static Dictionary<string, float> flyingType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",0.5f },
+            {"Flying",1 },
+            {"Poison",1 },
+            {"Ground",0 },
+            {"Rock",2 },
+            {"Bug",0.5f },
+            {"Ghost",1 },
+            {"Steel",1 },
+            {"Fire",1 },
+            {"Water",1 },
+            {"Grass",0.5f },
+            {"Electric",2 },
+            {"Psychic",1 },
+            {"Ice",2 },
+            {"Dragon",1 },
+            {"Dark",1 },
+            {"Fairy",1 }
+        };
+
+        private readonly static Dictionary<string, float> poisonType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",0.5f },
+            {"Flying",1 },
+            {"Poison",0.5f },
+            {"Ground",2 },
+            {"Rock",1 },
+            {"Bug",0.5f },
+            {"Ghost",1 },
+            {"Steel",1 },
+            {"Fire",1 },
+            {"Water",1 },
+            {"Grass",0.5f },
+            {"Electric",1 },
+            {"Psychic",2 },
+            {"Ice",1 },
+            {"Dragon",1 },
+            {"Dark",1 },
+            {"Fairy",0.5f }
+        };
+
+        private readonly static Dictionary<string, float> groundType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",1 },
+            {"Flying",1 },
+            {"Poison",0.5f },
+            {"Ground",1 },
+            {"Rock",0.5f},
+            {"Bug",1 },
+            {"Ghost",1 },
+            {"Steel",1 },
+            {"Fire",1 },
+            {"Water",2 },
+            {"Grass",2 },
+            {"Electric",0 },
+            {"Psychic",1 },
+            {"Ice",2 },
+            {"Dragon",1 },
+            {"Dark",1 },
+            {"Fairy",1 }
+        };
+
+        private readonly static Dictionary<string, float> rockType = new Dictionary<string, float> {
+            {"Normal",0.5f },
+            {"Fighting",2 },
+            {"Flying",0.5f },
+            {"Poison",0.5f },
+            {"Ground",2 },
+            {"Rock",1},
+            {"Bug",1 },
+            {"Ghost",1 },
+            {"Steel",2 },
+            {"Fire",0.5f},
+            {"Water",2 },
+            {"Grass",2 },
+            {"Electric",1 },
+            {"Psychic",1 },
+            {"Ice",1 },
+            {"Dragon",1 },
+            {"Dark",1 },
+            {"Fairy",1 }
+        };
+
+        private readonly static Dictionary<string, float> bugType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",0.5f },
+            {"Flying",2 },
+            {"Poison",1 },
+            {"Ground",0.5f },
+            {"Rock",2},
+            {"Bug",1 },
+            {"Ghost",1 },
+            {"Steel",1 },
+            {"Fire",2},
+            {"Water",1 },
+            {"Grass",0.5f },
+            {"Electric",1 },
+            {"Psychic",1 },
+            {"Ice",1 },
+            {"Dragon",1 },
+            {"Dark",1 },
+            {"Fairy",1 }
+        };
+
+        private readonly static Dictionary<string, float> ghostType = new Dictionary<string, float> {
+            {"Normal",0 },
+            {"Fighting",0 },
+            {"Flying",1 },
+            {"Poison",0.5f },
+            {"Ground",1 },
+            {"Rock",1 },
+            {"Bug",0.5f },
+            {"Ghost",2 },
+            {"Steel",1 },
+            {"Fire",1 },
+            {"Water",1 },
+            {"Grass",1 },
+            {"Electric",1 },
+            {"Psychic",1 },
+            {"Ice",1 },
+            {"Dragon",1 },
+            {"Dark",2 },
+            {"Fairy",1 }
+        };
+
+        private readonly static Dictionary<string, float> steelType = new Dictionary<string, float> {
+            {"Normal",0.5f },
+            {"Fighting",2 },
+            {"Flying",0.5f },
+            {"Poison",0 },
+            {"Ground",2 },
+            {"Rock",0.5f },
+            {"Bug",0.5f },
+            {"Ghost",1 },
+            {"Steel",0.5f },
+            {"Fire",2 },
+            {"Water",1 },
+            {"Grass",0.5f },
+            {"Electric",1 },
+            {"Psychic",0.5f },
+            {"Ice",0.5f },
+            {"Dragon",0.5f },
+            {"Dark",1 },
+            {"Fairy",0.5f }
+        };
+
+        private readonly static Dictionary<string, float> fireType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",1 },
+            {"Flying",1 },
+            {"Poison",1 },
+            {"Ground",2 },
+            {"Rock",2 },
+            {"Bug",0.5f },
+            {"Ghost",1 },
+            {"Steel",0.5f },
+            {"Fire",0.5f },
+            {"Water",2 },
+            {"Grass",0.5f },
+            {"Electric",1 },
+            {"Psychic",1 },
+            {"Ice",0.5f },
+            {"Dragon",1 },
+            {"Dark",1 },
+            {"Fairy",0.5f }
+        };
+
+        private readonly static Dictionary<string, float> waterType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",1 },
+            {"Flying",1 },
+            {"Poison",1 },
+            {"Ground",1 },
+            {"Rock",1 },
+            {"Bug",1 },
+            {"Ghost",1 },
+            {"Steel",0.5f },
+            {"Fire",0.5f },
+            {"Water",0.5f },
+            {"Grass",2 },
+            {"Electric",2 },
+            {"Psychic",1 },
+            {"Ice",0.5f },
+            {"Dragon",1 },
+            {"Dark",1 },
+            {"Fairy",1 }
+        };
+
+        private readonly static Dictionary<string, float> grassType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",1 },
+            {"Flying",2 },
+            {"Poison",2 },
+            {"Ground",0.5f },
+            {"Rock",1},
+            {"Bug",2 },
+            {"Ghost",1 },
+            {"Steel",1 },
+            {"Fire",2},
+            {"Water",0.5f },
+            {"Grass",0.5f },
+            {"Electric",0.5f },
+            {"Psychic",1 },
+            {"Ice",2 },
+            {"Dragon",1 },
+            {"Dark",1 },
+            {"Fairy",1 }
+        };
+
+        private readonly static Dictionary<string, float> electricType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",1 },
+            {"Flying",0.5f },
+            {"Poison",1 },
+            {"Ground",2 },
+            {"Rock",1 },
+            {"Bug",1 },
+            {"Ghost",1 },
+            {"Steel",0.5f },
+            {"Fire",1 },
+            {"Water",1 },
+            {"Grass",1 },
+            {"Electric",0.5f },
+            {"Psychic",1 },
+            {"Ice",1 },
+            {"Dragon",1 },
+            {"Dark",1 },
+            {"Fairy",1 }
+        };
+
+        private readonly static Dictionary<string, float> psychicType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",0.5f },
+            {"Flying",1 },
+            {"Poison",1 },
+            {"Ground",1 },
+            {"Rock",1 },
+            {"Bug",2 },
+            {"Ghost",2 },
+            {"Steel",1 },
+            {"Fire",1 },
+            {"Water",1 },
+            {"Grass",1 },
+            {"Electric",1 },
+            {"Psychic",0.5f },
+            {"Ice",1 },
+            {"Dragon",1 },
+            {"Dark",2 },
+            {"Fairy",1 }
+        };
+
+        private readonly static Dictionary<string, float> iceType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",2 },
+            {"Flying",1 },
+            {"Poison",1 },
+            {"Ground",1 },
+            {"Rock",2 },
+            {"Bug",1 },
+            {"Ghost",1 },
+            {"Steel",2 },
+            {"Fire",2 },
+            {"Water",1 },
+            {"Grass",1 },
+            {"Electric",1 },
+            {"Psychic",1 },
+            {"Ice",0.5f },
+            {"Dragon",1 },
+            {"Dark",1 },
+            {"Fairy",1 }
+        };
+
+        private readonly static Dictionary<string, float> dragonType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",1 },
+            {"Flying",1 },
+            {"Poison",1 },
+            {"Ground",1 },
+            {"Rock",1 },
+            {"Bug",1 },
+            {"Ghost",1 },
+            {"Steel",1 },
+            {"Fire",0.5f },
+            {"Water",0.5f },
+            {"Grass",0.5f },
+            {"Electric",0.5f },
+            {"Psychic",1 },
+            {"Ice",2 },
+            {"Dragon",2 },
+            {"Dark",1 },
+            {"Fairy",2 }
+        };
+
+        private readonly static Dictionary<string, float> darkType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",2 },
+            {"Flying",1 },
+            {"Poison",1 },
+            {"Ground",1 },
+            {"Rock",1 },
+            {"Bug",2 },
+            {"Ghost",0.5f },
+            {"Steel",1 },
+            {"Fire",1 },
+            {"Water",1 },
+            {"Grass",1 },
+            {"Electric",1 },
+            {"Psychic",0 },
+            {"Ice",1 },
+            {"Dragon",1 },
+            {"Dark",0.5f },
+            {"Fairy",2 }
+        };
+
+        private readonly static Dictionary<string, float> fairyType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",0.5f },
+            {"Flying",1 },
+            {"Poison",2 },
+            {"Ground",1 },
+            {"Rock",1 },
+            {"Bug",0.5f },
+            {"Ghost",1 },
+            {"Steel",2 },
+            {"Fire",1 },
+            {"Water",1 },
+            {"Grass",1 },
+            {"Electric",1 },
+            {"Psychic",1 },
+            {"Ice",1 },
+            {"Dragon",0 },
+            {"Dark",0.5f },
+            {"Fairy",1 }
+        };
+
+        private readonly static Dictionary<string, float> noType = new Dictionary<string, float> {
+            {"Normal",1 },
+            {"Fighting",1 },
+            {"Flying",1 },
+            {"Poison",1 },
+            {"Ground",1 },
+            {"Rock",1 },
+            {"Bug",1 },
+            {"Ghost",1 },
+            {"Steel",1 },
+            {"Fire",1 },
+            {"Water",1 },
+            {"Grass",1 },
+            {"Electric",1 },
+            {"Psychic",1 },
+            {"Ice",1 },
+            {"Dragon",1 },
+            {"Dark",1 },
+            {"Fairy",1 }
+        };
+
+        private Type(string name)
         {
-            Normal,
-            Fighting,
-            Flying,
-            Poison,
-            Ground,
-            Rock,
-            Bug,
-            Ghost,
-            Steel,
-            Fire,
-            Water,
-            Grass,
-            Electric,
-            Psychic,
-            Ice,
-            Dragon,
-            Dark,
-            Fairy,
-            none
+            this.Name = name;
         }
 
-        private static Dictionary<types, float> normalType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,2 },
-            {types.Flying,1 },
-            {types.Poison,1 },
-            {types.Ground,1 },
-            {types.Rock,1 },
-            {types.Bug,1 },
-            {types.Ghost,0 },
-            {types.Steel,1 },
-            {types.Fire,1 },
-            {types.Water,1 },
-            {types.Grass,1 },
-            {types.Electric,1 },
-            {types.Psychic,1 },
-            {types.Ice,1 },
-            {types.Dragon,1 },
-            {types.Dark,1 },
-            {types.Fairy,1 }
-        };
-
-        private static Dictionary<types, float> figthingType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,1 },
-            {types.Flying,2 },
-            {types.Poison,1 },
-            {types.Ground,1 },
-            {types.Rock,0.5f },
-            {types.Bug,0.5f },
-            {types.Ghost,1 },
-            {types.Steel,1 },
-            {types.Fire,1 },
-            {types.Water,1 },
-            {types.Grass,1 },
-            {types.Electric,1 },
-            {types.Psychic,2 },
-            {types.Ice,1 },
-            {types.Dragon,1 },
-            {types.Dark,0.5f },
-            {types.Fairy,2 }
-        };
-
-        private static Dictionary<types, float> flyingType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,0.5f },
-            {types.Flying,1 },
-            {types.Poison,1 },
-            {types.Ground,0 },
-            {types.Rock,2 },
-            {types.Bug,0.5f },
-            {types.Ghost,1 },
-            {types.Steel,1 },
-            {types.Fire,1 },
-            {types.Water,1 },
-            {types.Grass,0.5f },
-            {types.Electric,2 },
-            {types.Psychic,1 },
-            {types.Ice,2 },
-            {types.Dragon,1 },
-            {types.Dark,1 },
-            {types.Fairy,1 }
-        };
-
-        private static Dictionary<types, float> poisonType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,0.5f },
-            {types.Flying,1 },
-            {types.Poison,0.5f },
-            {types.Ground,2 },
-            {types.Rock,1 },
-            {types.Bug,0.5f },
-            {types.Ghost,1 },
-            {types.Steel,1 },
-            {types.Fire,1 },
-            {types.Water,1 },
-            {types.Grass,0.5f },
-            {types.Electric,1 },
-            {types.Psychic,2 },
-            {types.Ice,1 },
-            {types.Dragon,1 },
-            {types.Dark,1 },
-            {types.Fairy,0.5f }
-        };
-
-        private static Dictionary<types, float> groundType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,1 },
-            {types.Flying,1 },
-            {types.Poison,0.5f },
-            {types.Ground,1 },
-            {types.Rock,0.5f},
-            {types.Bug,1 },
-            {types.Ghost,1 },
-            {types.Steel,1 },
-            {types.Fire,1 },
-            {types.Water,2 },
-            {types.Grass,2 },
-            {types.Electric,0 },
-            {types.Psychic,1 },
-            {types.Ice,2 },
-            {types.Dragon,1 },
-            {types.Dark,1 },
-            {types.Fairy,1 }
-        };
-
-        private static Dictionary<types, float> rockType = new Dictionary<types, float> {
-            {types.Normal,0.5f },
-            {types.Fighting,2 },
-            {types.Flying,0.5f },
-            {types.Poison,0.5f },
-            {types.Ground,2 },
-            {types.Rock,1},
-            {types.Bug,1 },
-            {types.Ghost,1 },
-            {types.Steel,2 },
-            {types.Fire,0.5f},
-            {types.Water,2 },
-            {types.Grass,2 },
-            {types.Electric,1 },
-            {types.Psychic,1 },
-            {types.Ice,1 },
-            {types.Dragon,1 },
-            {types.Dark,1 },
-            {types.Fairy,1 }
-        };
-
-        private static Dictionary<types, float> bugType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,0.5f },
-            {types.Flying,2 },
-            {types.Poison,1 },
-            {types.Ground,0.5f },
-            {types.Rock,2},
-            {types.Bug,1 },
-            {types.Ghost,1 },
-            {types.Steel,1 },
-            {types.Fire,2},
-            {types.Water,1 },
-            {types.Grass,0.5f },
-            {types.Electric,1 },
-            {types.Psychic,1 },
-            {types.Ice,1 },
-            {types.Dragon,1 },
-            {types.Dark,1 },
-            {types.Fairy,1 }
-        };
-
-        private static Dictionary<types, float> ghostType = new Dictionary<types, float> {
-            {types.Normal,0 },
-            {types.Fighting,0 },
-            {types.Flying,1 },
-            {types.Poison,0.5f },
-            {types.Ground,1 },
-            {types.Rock,1 },
-            {types.Bug,0.5f },
-            {types.Ghost,2 },
-            {types.Steel,1 },
-            {types.Fire,1 },
-            {types.Water,1 },
-            {types.Grass,1 },
-            {types.Electric,1 },
-            {types.Psychic,1 },
-            {types.Ice,1 },
-            {types.Dragon,1 },
-            {types.Dark,2 },
-            {types.Fairy,1 }
-        };
-
-        private static Dictionary<types, float> steelType = new Dictionary<types, float> {
-            {types.Normal,0.5f },
-            {types.Fighting,2 },
-            {types.Flying,0.5f },
-            {types.Poison,0 },
-            {types.Ground,2 },
-            {types.Rock,0.5f },
-            {types.Bug,0.5f },
-            {types.Ghost,1 },
-            {types.Steel,0.5f },
-            {types.Fire,2 },
-            {types.Water,1 },
-            {types.Grass,0.5f },
-            {types.Electric,1 },
-            {types.Psychic,0.5f },
-            {types.Ice,0.5f },
-            {types.Dragon,0.5f },
-            {types.Dark,1 },
-            {types.Fairy,0.5f }
-        };
-
-        private static Dictionary<types, float> fireType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,1 },
-            {types.Flying,1 },
-            {types.Poison,1 },
-            {types.Ground,2 },
-            {types.Rock,2 },
-            {types.Bug,0.5f },
-            {types.Ghost,1 },
-            {types.Steel,0.5f },
-            {types.Fire,0.5f },
-            {types.Water,2 },
-            {types.Grass,0.5f },
-            {types.Electric,1 },
-            {types.Psychic,1 },
-            {types.Ice,0.5f },
-            {types.Dragon,1 },
-            {types.Dark,1 },
-            {types.Fairy,0.5f }
-        };
-
-        private static Dictionary<types, float> waterType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,1 },
-            {types.Flying,1 },
-            {types.Poison,1 },
-            {types.Ground,1 },
-            {types.Rock,1 },
-            {types.Bug,1 },
-            {types.Ghost,1 },
-            {types.Steel,0.5f },
-            {types.Fire,0.5f },
-            {types.Water,0.5f },
-            {types.Grass,2 },
-            {types.Electric,2 },
-            {types.Psychic,1 },
-            {types.Ice,0.5f },
-            {types.Dragon,1 },
-            {types.Dark,1 },
-            {types.Fairy,1 }
-        };
-
-        private static Dictionary<types, float> grassType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,1 },
-            {types.Flying,2 },
-            {types.Poison,2 },
-            {types.Ground,0.5f },
-            {types.Rock,1},
-            {types.Bug,2 },
-            {types.Ghost,1 },
-            {types.Steel,1 },
-            {types.Fire,2},
-            {types.Water,0.5f },
-            {types.Grass,0.5f },
-            {types.Electric,0.5f },
-            {types.Psychic,1 },
-            {types.Ice,2 },
-            {types.Dragon,1 },
-            {types.Dark,1 },
-            {types.Fairy,1 }
-        };
-
-        private static Dictionary<types, float> electricType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,1 },
-            {types.Flying,0.5f },
-            {types.Poison,1 },
-            {types.Ground,2 },
-            {types.Rock,1 },
-            {types.Bug,1 },
-            {types.Ghost,1 },
-            {types.Steel,0.5f },
-            {types.Fire,1 },
-            {types.Water,1 },
-            {types.Grass,1 },
-            {types.Electric,0.5f },
-            {types.Psychic,1 },
-            {types.Ice,1 },
-            {types.Dragon,1 },
-            {types.Dark,1 },
-            {types.Fairy,1 }
-        };
-
-        private static Dictionary<types, float> psychicType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,0.5f },
-            {types.Flying,1 },
-            {types.Poison,1 },
-            {types.Ground,1 },
-            {types.Rock,1 },
-            {types.Bug,2 },
-            {types.Ghost,2 },
-            {types.Steel,1 },
-            {types.Fire,1 },
-            {types.Water,1 },
-            {types.Grass,1 },
-            {types.Electric,1 },
-            {types.Psychic,0.5f },
-            {types.Ice,1 },
-            {types.Dragon,1 },
-            {types.Dark,2 },
-            {types.Fairy,1 }
-        };
-
-        private static Dictionary<types, float> iceType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,2 },
-            {types.Flying,1 },
-            {types.Poison,1 },
-            {types.Ground,1 },
-            {types.Rock,2 },
-            {types.Bug,1 },
-            {types.Ghost,1 },
-            {types.Steel,2 },
-            {types.Fire,2 },
-            {types.Water,1 },
-            {types.Grass,1 },
-            {types.Electric,1 },
-            {types.Psychic,1 },
-            {types.Ice,0.5f },
-            {types.Dragon,1 },
-            {types.Dark,1 },
-            {types.Fairy,1 }
-        };
-
-        private static Dictionary<types, float> dragonType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,1 },
-            {types.Flying,1 },
-            {types.Poison,1 },
-            {types.Ground,1 },
-            {types.Rock,1 },
-            {types.Bug,1 },
-            {types.Ghost,1 },
-            {types.Steel,1 },
-            {types.Fire,0.5f },
-            {types.Water,0.5f },
-            {types.Grass,0.5f },
-            {types.Electric,0.5f },
-            {types.Psychic,1 },
-            {types.Ice,2 },
-            {types.Dragon,2 },
-            {types.Dark,1 },
-            {types.Fairy,2 }
-        };
-
-        private static Dictionary<types, float> darkType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,2 },
-            {types.Flying,1 },
-            {types.Poison,1 },
-            {types.Ground,1 },
-            {types.Rock,1 },
-            {types.Bug,2 },
-            {types.Ghost,0.5f },
-            {types.Steel,1 },
-            {types.Fire,1 },
-            {types.Water,1 },
-            {types.Grass,1 },
-            {types.Electric,1 },
-            {types.Psychic,0 },
-            {types.Ice,1 },
-            {types.Dragon,1 },
-            {types.Dark,0.5f },
-            {types.Fairy,2 }
-        };
-
-        private static Dictionary<types, float> fairyType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,0.5f },
-            {types.Flying,1 },
-            {types.Poison,2 },
-            {types.Ground,1 },
-            {types.Rock,1 },
-            {types.Bug,0.5f },
-            {types.Ghost,1 },
-            {types.Steel,2 },
-            {types.Fire,1 },
-            {types.Water,1 },
-            {types.Grass,1 },
-            {types.Electric,1 },
-            {types.Psychic,1 },
-            {types.Ice,1 },
-            {types.Dragon,0 },
-            {types.Dark,0.5f },
-            {types.Fairy,1 }
-        };
-
-        private static Dictionary<types, float> noType = new Dictionary<types, float> {
-            {types.Normal,1 },
-            {types.Fighting,1 },
-            {types.Flying,1 },
-            {types.Poison,1 },
-            {types.Ground,1 },
-            {types.Rock,1 },
-            {types.Bug,1 },
-            {types.Ghost,1 },
-            {types.Steel,1 },
-            {types.Fire,1 },
-            {types.Water,1 },
-            {types.Grass,1 },
-            {types.Electric,1 },
-            {types.Psychic,1 },
-            {types.Ice,1 },
-            {types.Dragon,1 },
-            {types.Dark,1 },
-            {types.Fairy,1 }
-        };
-
-        private Type(types type)
-        {
-            this.Name = type;
-            this.StringType = Name.ToString();
-        }
-
-        public static Type GetType(types GetType)
+        public static Type GetType(string GetType)
         {
             foreach (Type type in TYPES)
             {
@@ -452,50 +426,50 @@ namespace TeamBuilderPkmn
                     return type;
                 }
             }
-            return new Type(types.none);
+            return new Type("none");
         }
 
-        public Dictionary<types, float> GetWeaknesses()
+        public Dictionary<string, float> GetWeaknesses()
         {
             switch (Name)
             {
-                case types.Normal:
+                case "Normal":
                     return normalType;
-                case types.Fighting:
+                case "Fighting":
                     return figthingType;
-                case types.Flying:
+                case "Flying":
                     return flyingType;
-                case types.Poison:
+                case "Poison":
                     return poisonType;
-                case types.Ground:
+                case "Ground":
                     return groundType;
-                case types.Rock:
+                case "Rock":
                     return rockType;
-                case types.Bug:
+                case "Bug":
                     return bugType;
-                case types.Ghost:
+                case "Ghost":
                     return ghostType;
-                case types.Steel:
+                case "Steel":
                     return steelType;
-                case types.Fire:
+                case "Fire":
                     return fireType;
-                case types.Water:
+                case "Water":
                     return waterType;
-                case types.Grass:
+                case "Grass":
                     return grassType;
-                case types.Electric:
+                case "Electric":
                     return electricType;
-                case types.Psychic:
+                case "Psychic":
                     return psychicType;
-                case types.Ice:
+                case "Ice":
                     return iceType;
-                case types.Dragon:
+                case "Dragon":
                     return dragonType;
-                case types.Dark:
+                case "Dark":
                     return darkType;
-                case types.Fairy:
+                case "Fairy":
                     return fairyType;
-                case types.none:
+                case "none":
                 default:
                     return noType;
             }
@@ -505,25 +479,25 @@ namespace TeamBuilderPkmn
         {
             return new Type[]
             {
-                new Type(types.none),
-                new Type(types.Normal),
-                new Type(types.Fighting),
-                new Type(types.Flying),
-                new Type(types.Poison),
-                new Type(types.Ground),
-                new Type(types.Rock),
-                new Type(types.Bug),
-                new Type(types.Ghost),
-                new Type(types.Steel),
-                new Type(types.Fire),
-                new Type(types.Water),
-                new Type(types.Grass),
-                new Type(types.Electric),
-                new Type(types.Psychic),
-                new Type(types.Ice),
-                new Type(types.Dragon),
-                new Type(types.Dark),
-                new Type(types.Fairy)
+                new Type("none"),
+                new Type("Normal"),
+                new Type("Fighting"),
+                new Type("Flying"),
+                new Type("Poison"),
+                new Type("Ground"),
+                new Type("Rock"),
+                new Type("Bug"),
+                new Type("Ghost"),
+                new Type("Steel"),
+                new Type("Fire"),
+                new Type("Water"),
+                new Type("Grass"),
+                new Type("Electric"),
+                new Type("Psychic"),
+                new Type("Ice"),
+                new Type("Dragon"),
+                new Type("Dark"),
+                new Type("Fairy")
             };
         }
 
@@ -533,7 +507,7 @@ namespace TeamBuilderPkmn
             types.Remove(excludedType);
             if (!isNoneOk)
             {
-                types.Remove(GetType(Type.types.none));
+                types.Remove(GetType("none"));
             }
             return types;
         }

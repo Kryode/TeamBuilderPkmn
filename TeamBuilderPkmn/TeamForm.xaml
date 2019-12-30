@@ -32,7 +32,7 @@
         <ComboBox Name="pkmn5Type2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Column="1" Grid.Row="4"/>
         <ComboBox Name="pkmn6Type1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Column="0" Grid.Row="5"/>
         <ComboBox Name="pkmn6Type2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Grid.Column="1" Grid.Row="5"/>
-        <Button Name="send" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" Height="40" Margin="296,10,296,10" Width="200" Grid.ColumnSpan="2">
+        <Button Name="send" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" Height="40" Margin="296,10,296,10" Width="200" Grid.ColumnSpan="2" Click="SendResult">
             Envoyer
         </Button>
 
