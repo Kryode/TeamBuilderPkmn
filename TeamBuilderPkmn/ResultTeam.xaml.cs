@@ -26,7 +26,7 @@ namespace TeamBuilderPkmn
         public ResultTeam(Pokemon[] pokemons)
         {
             InitializeComponent();
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 8; i++)
             {
                 for (int j = 0; j < 19; j++)
                 {
@@ -35,6 +35,24 @@ namespace TeamBuilderPkmn
                     if(i == 0)
                     {
                         label.Content = Type.TYPES[j].Name;
+                    }
+
+                    else if (i == 7)
+                    {
+                        if (j > 0)
+                        {
+                            float average = 0f;
+                            for (int k = 0; k < 6; k++)
+                            {
+                                average += pokemons[k].GetWeakness().Values.ElementAt(j - 1);
+                            }
+                            average /= 6f;
+                            label.Content = average.ToString(); 
+                        }
+                        else
+                        {
+                            label.Content = "average";
+                        }
                     }
 
                     else if(j == 0)
