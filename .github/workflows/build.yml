@@ -1,6 +1,7 @@
 name: Build
-
-on: [push]
+on: 
+  push:
+    tags: ['v*']
 
 jobs:
   build:
@@ -14,4 +15,11 @@ jobs:
       uses: warrenbuckley/Setup-MSBuild@v1
       
     - name: Build
-      run: msbuild TeamBuilderPkmn.sln
+      run: msbuild /p:Configuration=Release TeamBuilderPkmn.sln
+
+    - name: Upload release
+      uses: yakuhzi/action-release@v1
+      with:
+        file: \TeamBuilderPkmn\bin\Release\TeamBuilderPkmn.exe
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
