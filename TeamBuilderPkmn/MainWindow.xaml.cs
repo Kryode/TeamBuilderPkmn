@@ -26,7 +26,7 @@ namespace TeamBuilderPkmn
             InitializeComponent();    
         }
 
-        private void GoToTeamWeaknesses(object sender, RoutedEventArgs args) 
+        private void GoToTeamWeaknesses(object sender, RoutedEventArgs args)
         {
             TeamForm teamForm = new TeamForm();
             teamForm.Show();
