@@ -37,5 +37,10 @@ namespace TeamBuilderPkmn
         {
             this.Close();
         }
+
+        private void GoToOptions(object sender, RoutedEventArgs args)
+        {
+
+        }
     }
 }
