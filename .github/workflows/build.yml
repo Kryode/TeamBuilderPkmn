@@ -20,6 +20,6 @@ jobs:
     - name: Upload release
       uses: yakuhzi/action-release@v1
       with:
-        file: \TeamBuilderPkmn\bin\Release\TeamBuilderPkmn.exe
+        file: D:\a\TeamBuilderPkmn\TeamBuilderPkmn\TeamBuilderPkmn\bin\Release\TeamBuilderPkmn.exe
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
