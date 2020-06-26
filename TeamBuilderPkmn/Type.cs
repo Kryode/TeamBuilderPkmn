@@ -511,6 +511,16 @@ namespace TeamBuilderPkmn
             }
             return types;
         }
+
+        public static List<string> ToString (List<Type> types)
+        {
+            List<string> TypeString = new List<string>();
+            foreach (Type type in types)
+            {
+                TypeString.Add(type.Name);
+            }
+            return TypeString;
+        }
     }
 
 

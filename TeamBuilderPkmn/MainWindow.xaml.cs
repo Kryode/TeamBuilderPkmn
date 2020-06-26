@@ -33,6 +33,13 @@ namespace TeamBuilderPkmn
             this.Close();
         }
 
+        private void GoToPokemonWeaknesses(object sender, RoutedEventArgs args)
+        {
+            PokemonWeakness pokemonWeakness = new PokemonWeakness();
+            pokemonWeakness.Show();
+            this.Close();
+        }
+
         private void Quit(object sender, RoutedEventArgs args)
         {
             this.Close();

@@ -1,0 +1,32 @@
+﻿<Window x:Class="TeamBuilderPkmn.PokemonWeakness"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TeamBuilderPkmn"
+        mc:Ignorable="d"
+        Title="PokemonWeakness" Height="450" Width="800">
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55*"/>
+                <RowDefinition Height="400*"/>
+            </Grid.RowDefinitions>
+
+            <ComboBox x:Name="typeOne"  HorizontalAlignment="Left" Height="45" Margin="45,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="230" />
+            <ComboBox x:Name="typeTwo"  HorizontalAlignment="Right" Height="45" Margin="0,0,45,0" Grid.Row="1" VerticalAlignment="Top" Width="230"/>
+            <Label x:Name="labelZero" Content="x0" HorizontalAlignment="Left" Height="31" Margin="24,94,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50"/>
+            <Label x:Name="labelQuart" Content="x1/4" HorizontalAlignment="Left" Height="31" Margin="24,130,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50"/>
+            <Label x:Name="labelHalf" Content="x1/2" HorizontalAlignment="Left" Height="31" Margin="24,166,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50"/>
+            <Label x:Name="labelOne" Content="x1" HorizontalAlignment="Left" Height="31" Margin="24,202,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50"/>
+            <Label x:Name="labelDouble" Content="x2" HorizontalAlignment="Left" Height="31" Margin="24,238,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50"/>
+            <Label x:Name="labelQuad" Content="x4" HorizontalAlignment="Left" Height="31" Margin="24,274,0,0" Grid.Row="1" VerticalAlignment="Top" Width="50"/>
+            <Label x:Name="EntryZero" Content="" HorizontalAlignment="Left" Height="31" Margin="83,94,0,0" Grid.Row="1" VerticalAlignment="Top" Width="664"/>
+            <Label x:Name="EntryQuart" Content="" HorizontalAlignment="Left" Height="31" Margin="83,130,0,0" Grid.Row="1" VerticalAlignment="Top" Width="664"/>
+            <Label x:Name="EntryHalf" Content="" HorizontalAlignment="Left" Height="31" Margin="83,166,0,0" Grid.Row="1" VerticalAlignment="Top" Width="664"/>
+            <Label x:Name="EntryOne" Content="" HorizontalAlignment="Left" Height="31" Margin="83,202,0,0" Grid.Row="1" VerticalAlignment="Top" Width="664"/>
+            <Label x:Name="EntryDouble" Content="" HorizontalAlignment="Left" Height="31" Margin="83,238,0,0" Grid.Row="1" VerticalAlignment="Top" Width="664"/>
+            <Label x:Name="EntryQuad" Content="" HorizontalAlignment="Left" Height="31" Margin="83,274,0,0" Grid.Row="1" VerticalAlignment="Top" Width="664"/>
+        </Grid>
+    </Grid>
+</Window>

@@ -3,13 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TeamBuilderPkmn"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Content="Faiblesses d'équipes" HorizontalAlignment="Left" Height="70" Margin="230,50,0,0" VerticalAlignment="Top" Width="310" Click="GoToTeamWeaknesses"/>
         <Button Content="Coverage d'un moveset" HorizontalAlignment="Left" Height="70" Margin="230,140,0,0" VerticalAlignment="Top" Width="310"/>
-        <Button Content="Options" HorizontalAlignment="Left" Height="70" Margin="230,230,0,0" VerticalAlignment="Top" Width="310" Click="GoToOptions"/>
+        <Button Content="Faiblesses d'un pokémon&#xD;&#xA;" HorizontalAlignment="Left" Height="70" Margin="230,230,0,0" VerticalAlignment="Top" Width="310" Click="GoToPokemonWeaknesses"/>
         <Button Content="Quitter" HorizontalAlignment="Left" Height="70" Margin="230,320,0,0" VerticalAlignment="Top" Width="310" Click="Quit"/>
     </Grid>
 </Window>

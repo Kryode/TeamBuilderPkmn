@@ -19,10 +19,6 @@ namespace TeamBuilderPkmn
     /// </summary>
     public partial class ResultTeam : Window
     {
-        public ResultTeam()
-        {
-
-        }
         public ResultTeam(Pokemon[] pokemons)
         {
             InitializeComponent();
