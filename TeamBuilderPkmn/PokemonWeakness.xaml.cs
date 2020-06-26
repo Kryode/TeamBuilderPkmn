@@ -26,12 +26,13 @@ namespace TeamBuilderPkmn
         {
             InitializeComponent();
             DataContext = this;
-            TypesList = Type.GetListPossibleTypes(Type.GetType("none"));
+            TypesList = Type.TYPES.ToList();
             typeTwo.ItemsSource = TypesList;
             typeTwo.DisplayMemberPath = "Name";
             typeTwo.SelectedValuePath = "Type.GetType(Name)";
             typeTwo.SelectionChanged += typeTwo_SelectionChanged;
 
+            TypesList = Type.GetListPossibleTypes(Type.GetType("none"));
             typeOne.ItemsSource = TypesList;
             typeOne.DisplayMemberPath = "Name";
             typeOne.SelectedValuePath = "Type.GetType(Name)";
@@ -43,7 +44,7 @@ namespace TeamBuilderPkmn
             ComboBox box = (ComboBox)sender;
             pkmn.Type1 = (Type)box.SelectedItem;
             PrintWeaknesses(pkmn);
-            typeTwo.ItemsSource = Type.GetListPossibleTypes(pkmn.Type1, false);
+            typeTwo.ItemsSource = Type.GetListPossibleTypes(pkmn.Type1, true);
         }
 
         private void typeTwo_SelectionChanged(object sender, SelectionChangedEventArgs e)
